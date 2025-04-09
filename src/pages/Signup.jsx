@@ -5,29 +5,22 @@ const Signup = () =>{
   const [name, setName] = useState('')
   const [email, setMail] = useState('')
   const [password, setPass] = useState('')
-  const [users, setUsers] = useState([])
 
-  
-let navigate = useNavigate()
+  const  navigate = useNavigate()
 
   const submitForm =()=>{
-      if(name==='' || email==='' || password===''){
-          alert('Please fill all the fields')
-          return
-      }else{
-        const newUser = { id: Date.now(), name, email };
-        setUsers([...users, newUser]);
-        setName('');
-        setMail('');
-        setPass('');
-        navigate('/signin')
+    console.log(name, password, mail)
+    const data = {name, password, mail}
+    localstorage.setItem('user', JSON.stringify(data))
+    
+    navigate('/signin')
       }
       
 
 
 
       
-  }
+  
 
 
 return (

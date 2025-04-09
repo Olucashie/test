@@ -3,6 +3,11 @@ import React from 'react'
 const Signin = () => {
     const [email, setMail] = useState('')
       const [password, setPass] = useState('')
+      const navigate = useNavigate()
+
+      const submit = () =>{
+        const user = JSON.parse(localstorage.getItem('user'))
+      }
     
   return (
     <>
