@@ -1,13 +1,21 @@
-import React from 'react'
+
+import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Signin = () => {
     const [email, setMail] = useState('')
       const [password, setPass] = useState('')
       const navigate = useNavigate()
 
-      const submit = () =>{
+      const login = () =>{
         const user = JSON.parse(localstorage.getItem('user'))
+        if (user && user.mail === email && user.password === password){
+          console.log('Login successful')
+          navigate('/dashboard')
+      }else{
+        alert('Invalid email or password')
       }
+
     
   return (
     <>
@@ -22,5 +30,5 @@ const Signin = () => {
     </>
   )
 }
-
+}
 export default Signin
